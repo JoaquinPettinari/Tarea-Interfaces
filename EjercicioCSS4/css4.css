@@ -1,0 +1,36 @@
+.imperio{
+    background-color: red;
+}
+
+.rebelde{
+    background-color: blue;
+}
+
+#rebeldee{
+    color: white;
+}
+
+#DarthVader{
+    font-size: 30px;
+}
+
+#LukeSkywalker{
+    font-style: italic;
+}
+
+.soldadoBorder {
+    border:dashed;
+    border-radius: 2px;
+}
+
+.soldadoSpacing{
+    letter-spacing: 3px;
+}
+
+.align{
+    text-align: center;
+}
+
+.navesEspaciales{
+    text-transform: uppercase;
+}

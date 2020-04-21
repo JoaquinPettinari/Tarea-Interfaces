@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenidos a PetBook</h1>
+    <p>Es hora de que aprendas mas sobre los animales, registrá a tus mascotas.</p>
+    <br>
+
+    <form action="https://formspree.io/joaquinpettinari@hotmail.com" method="POST"> 
+        <p> A continuación rellena el formulario con los datos de tu mascota:</p>
+        <label>Nombre: <input type="text" name="firstname" placeholder="Nombre" required> </label>
+        <br> 
+        <br>
+        <label>Edad: <input type="number" name="age" placeholder="0" required> </label>
+        <br> 
+        <br> 
+        <label>Mail: <input type="text" name="mail" placeholder="nombre@casilla.com" required> </label>
+        <br> 
+        <br>
+        <label>Color: <input type="color" name="colour"> </label> 
+        <br> 
+        <br>
+        <label>Contrasña: <input type="password" name="password" placeholder="***" required> </label>
+        <br> 
+        <br>
+        <label>Macho <input type="checkbox" name="machito"> </label>
+        <label>Hembra <input type="checkbox" name="hembra"> </label>
+        <br> 
+        <br>
+        <input type="submit" value="Enviar">
+
+        <input type="reset">
+    </form>
+</body>
+</html>
