@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/paginaPrinpal.css">
 </head>
 <body background = "imagenes/fondo.png">
-   <div class = "texto">
+   <div class = "texto" id="text">
         <br>
         <span id="titulo"> ¡¡¡ Pregunta 1 !!! </span>
         <br><br>
@@ -16,7 +16,14 @@
         <a href="pared.html"><button id="boton"> COBOL</button></a>
         <a href="pregunta2.html"><button id="boton"> FORTRAN</button></a>
         <br>
-     
    </div>
+   <div id="start">
+            <a href="javascript:arrancar()"><img src="imagenes/start.png"></a>
+   </div>
+
+   <script> function arrancar() {
+       document.getElementById("text").style.display= "block";
+       document.getElementById("start").style.display="none";
+   }</script>
 </body>
 </html>

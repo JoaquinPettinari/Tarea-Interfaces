@@ -60,3 +60,13 @@ body{
     font-size: 20px;
     color: black;
 }
+
+#start{
+    top: 100px;
+    left: 800px;
+    position: absolute;
+}
+
+#text{
+    display: none;
+}
