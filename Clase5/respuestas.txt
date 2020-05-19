@@ -1,0 +1,70 @@
+1) ¿En qué parte del código se genera un closure? ¿Por qué?
+
+Se genera un closure acá, porque en una función interna estamos utilizando un valor externo como es el parámetro size en este caso.
+
+function cambiarDimensionFuente(size) {
+    return function() { 
+        document.body.style.fontSize = size + 'px';
+        };
+}
+
+2) ¿En qué parte del código se establece que al hacer click sobre el elemento con id fuente-8 se cambie el tamaño de las fuentes de la página?
+
+En la función setClicks() se establece que al hacer click va a haber una transformación del tamaño de la fuente, sin embargo donde se hace referencia de estos eventos es en <body onload="setClicks()">
+
+3) Supone que eliminamos la función setClicks y dejamos su código “libre” dentro de las etiquetas <script> … </script>. ¿Qué mensaje de error te muestra la consola de depuración? (Activa la consola si no la tienes activada) ¿Por qué aparece ese mensaje de error?
+
+Si simplemente eliminamos la función, dejando libre el código, lo que va a pasar es que, no se reconoce size, dado que era un variable que tenia dentro otra función llamada cambiarDimensionFuente(size).
+Por lo tanto nunca se puede hacer referencia a la misma
+
+4) ¿Debemos escribir document.getElementById('fuente-8').onclick = size8; ó document.getElementById('fuente-8').onclick = size8(); ?¿Por qué?
+
+Debemos escribir document.getElementById('fuente-8').onclick = size8; porque size8 es una variable que contiene una función, por lo tanto, hay unos () invisibles, PEERO, si ponemos otros () estaríamos entrando a la función dentro de la misma función, y no es lo que queremos
+
+5) Supón que al cargar la página queremos que el tamaño inicial de fuente sea 8 y para ello nos valemos de la función setClicks. ¿Debemos escribir dentro de esta función size8; ó size8();? ¿Por qué?
+
+Tenes que escribir size8(), aunque la verdad no se porqué pasa eso... estuve viendolo un rato y no se.
+
+6) Las closures no siempre son necesarias, incluso a veces se generan involuntariamente o innecesariamente consumiendo recursos del sistema que podrían ahorrarse. ¿Qué ventajas le ves al uso de closures en este código? ¿Y qué inconvenientes?
+
+Ventajas: que permite reutilizar el código, independientemente de los pixeles a modificar.
+
+Desteventajas: se vuelve muy complejo.
+
+7) Reescribí el código (hacelo como mejor creas cambiando todo aquello que consideres necesario) de forma que obtengas el mismo resultado pero sin hacer uso de closures.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unahur</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="color.css">
+    </head>
+    <body>
+        <div id="cabecera"><h2>Construcción de interfaces de usuario</h2><h3>Ejemplos JavaScript</h3>
+        <div id ="fuente-8" onclick="cambiarDimensionFuente(8)" > Poner texto a 8 </div> 
+        <div id ="fuente-16" onclick="cambiarDimensionFuente(16)"> Poner texto a 16 </div>
+        <div id ="fuente-24" onclick="cambiarDimensionFuente(24)"> Poner texto a 24 </div> </div>
+        <p>En las praderas de la estepa de la Tierra del Fuego suele hacer frío</p>
+    </body>
+    <script src="pruebas.js"></script>
+</html>
+
+
+function cambiarDimensionFuente(size) {
+      document.body.style.fontSize = size + 'px'
+}
+
+
+
+Ejercicio 2
+
+async function getProcessedData(url) {
+  return await downloadData(url) // returns a promise
+    .catch(e => {
+      return downloadFallbackData(url)  // returns a promise
+    })
+    .then(v => {
+      return processDataInWorker(v); // returns a promise
+    });
+}
