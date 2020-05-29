@@ -1,14 +1,14 @@
 
-/*function sayHello() {
+function sayHello() {
     return function() {
-       console.log("Hello!");
+      console.log("Hello!");
     }
  }
 
+const hola = sayHello();
 
- const hola = sayHello();
-
-
+console.log(hola())
+/*
  const functionsList = [() => console.log('Hello'), (a, b) => console.log(a + b)];
 
 // running all of them
