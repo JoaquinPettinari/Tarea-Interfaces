@@ -62,48 +62,32 @@ function crearSolicitudEnTabla(){
         celdaFecha.innerHTML = solicitudes[i].FechaSolicitud;
         celdaEstado.innerHTML = solicitudes[i].Estado;
 
-        var botonEditar = document.createElement('button');
-        botonEditar.innerHTML = "Editar"
-        botonEditar.value = solicitudes[i].ID;
-        botonEditar.id = "botonEditar"
-        botonEditar.className = "btn btn-secondary botonesDeEditar"
+        var checkBox = document.createElement('input')
+        checkBox.type ='radio';
+        checkBox.className = "checkBox",
+        checkBox.name = "boton";
+        checkBox.value = solicitudes[i].ID;
 
-        var botonEliminar = document.createElement('button');
-        botonEliminar.innerHTML = "Eliminar"
-        botonEliminar.value = solicitudes[i].ID;
-        botonEliminar.id = "botonEliminar"
-        botonEliminar.className = "btn btn-danger botonesDeEliminar"
-        
-        
-        celdaCheckBox.appendChild(botonEditar);
-        celdaCheckBox.appendChild(botonEliminar);
+        celdaCheckBox.appendChild(checkBox);
 
         tbody.appendChild(fila);
 
     }
 }
 
-
-function editarSolicitud(){
-    var botonesAEditar = document.getElementsByClassName("botonesDeEditar")
-    var botonesDeEliminar = document.getElementsByClassName("botonesDeEliminar")
-
-    for (i = 0; i < botonesAEditar.length; i++) {
-        botonesDeEliminar[i].style.opacity = 0;        
-        botonesAEditar[i].style.opacity = 1;
-    }
-    
-}
-
-
 function eliminarSolicitud(){
-
-    var botonesAEditar = document.getElementsByClassName("botonesDeEditar")
-    var botonesDeEliminar = document.getElementsByClassName("botonesDeEliminar")
-
-    for (i = 0; i < botonesDeEliminar.length; i++) {
-        botonesAEditar[i].style.opacity = 0;        
-        botonesDeEliminar[i].style.opacity = 1;
+    var todosLosCheckBox = document.getElementsByClassName("checkBox");
+    
+    for(var i = 0; i < todosLosCheckBox.length; i++){
+        if(todosLosCheckBox[i].checked){
+            console.log(todosLosCheckBox[i].value)
+        }
     }
 
+
+    /*jsonVar.hobbies.forEach(function(currentValue, index, arr){
+        if(jsonVar.hobbies[index].name==name){
+            jsonVar.hobbies.splice(index, index);     
+         }
+        })*/
 }
